@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dell Technologies: The Future of Public Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: #EBF5FF;
+            border-left: 5px solid #0073E6;
+        }
+        .flow-arrow::after {
+            content: '→';
+            font-size: 2rem;
+            color: #0073E6;
+            margin: 0 1rem;
+        }
+
+        @media print {
+            body {
+                font-size: 10pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            header, footer {
+                display: none;
+            }
+
+            main {
+                padding: 0;
+                margin: 0.5cm;
+            }
+
+            .mb-16 {
+                margin-bottom: 1.5rem;
+            }
+            
+            section {
+                page-break-inside: avoid;
+            }
+            
+            .bg-white {
+                background-color: #fff !important;
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+                padding: 0.5rem !important;
+            }
+
+            .chart-container {
+                position: relative;
+                box-sizing: border-box;
+                width: 100% !important;
+                height: 250px !important;
+                margin: 1rem auto !important;
+                page-break-inside: avoid;
+            }
+
+            .chart-container canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+
+            .kpi-card {
+                background-color: #EBF5FF !important;
+                border-left: 5px solid #0073E6 !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-[#00529B] text-white p-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight">Navigating the Next Era of Public Service</h1>
+        <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-[#CCE5FF]">How Dell Technologies is architecting the future for State & Local Government in an era of constrained transformation.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="market-overview" class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-[#00529B] mb-4">The New Fiscal Reality</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 mb-8">The SLG market faces a critical challenge: the demand for digital innovation is soaring while post-stimulus budgets are tightening. Success requires strategic investments that deliver measurable efficiency and ROI.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-5xl font-extrabold text-[#0073E6]">$155B</p>
+                    <p class="mt-2 text-gray-700 font-semibold">SLED IT Market in 2025</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-5xl font-extrabold text-[#0073E6]">2%</p>
+                    <p class="mt-2 text-gray-700 font-semibold">Projected Market Growth in 2025</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-5xl font-extrabold text-[#0073E6]">$178B</p>
+                    <p class="mt-2 text-gray-700 font-semibold">Projected Market Size by 2028</p>
+                </div>
+            </div>
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+                 <h3 class="text-xl font-bold text-center text-[#00529B] mb-4">SLED IT Market Forecast (in Billions)</h3>
+                 <div class="chart-container max-w-4xl h-80">
+                    <canvas id="marketGrowthChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">While overall growth is modest, targeted investments in software and as-a-service models show resilient expansion, indicating a strategic shift towards operational efficiency.</p>
+            </div>
+        </section>
+
+        <section id="cio-priorities" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#00529B] mb-2">The 2025 CIO Playbook</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">Analysis of state and county CIO priorities reveals a clear roadmap for technology investment. Cybersecurity remains paramount, AI adoption has exploded, and budget control is now a top-three concern.</p>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold text-center text-[#00529B] mb-4">Top 5 Priorities for SLG CIOs</h3>
+                <div class="chart-container max-w-4xl h-96">
+                    <canvas id="cioPrioritiesChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">This ranking highlights the critical need for solutions that are secure, intelligent, and financially sustainable.</p>
+            </div>
+        </section>
+
+        <section id="ai-imperative" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#00529B] mb-2">The AI Imperative: From Pilot to Production</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">AI is no longer a future concept; it's the #2 priority. Governments are actively deploying AI to enhance efficiency and public safety, creating a massive demand for secure, on-premise infrastructure.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-center text-[#00529B] mb-4">Expected GenAI Adoption</h3>
+                    <div class="chart-container max-w-sm h-72">
+                        <canvas id="aiAdoptionChart"></canvas>
+                    </div>
+                    <p class="text-center mt-4 text-gray-600"><b>45% of SLG officials</b> expect GenAI to be a top technology used in their organization within the next five years.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="kpi-card p-6 rounded-lg shadow-sm">
+                        <p class="text-5xl font-extrabold text-[#0073E6]">78%</p>
+                        <p class="mt-2 text-gray-700 font-semibold">of states have established AI advisory committees or task forces to guide implementation.</p>
+                    </div>
+                    <div class="kpi-card p-6 rounded-lg shadow-sm">
+                        <p class="text-5xl font-extrabold text-[#0073E6]">51%</p>
+                        <p class="mt-2 text-gray-700 font-semibold">of SLG professionals now report using AI on a daily basis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hybrid-cloud" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#00529B] mb-2">The Hybrid Cloud Reality</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">Full cloud migration is too costly and complex for most agencies. The pragmatic solution is a hybrid model that modernizes legacy systems in place, blending on-premise control with cloud agility.</p>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <div class="flex flex-col md:flex-row items-center justify-center text-center">
+                    <div class="border-2 border-dashed border-red-400 p-4 rounded-lg">
+                        <p class="font-bold text-red-600 text-lg">The Problem</p>
+                        <p class="text-6xl my-2">🏢</p>
+                        <p>Legacy Systems</p>
+                        <p class="text-sm text-red-500 mt-1">70% find "rip and replace" too costly.</p>
+                    </div>
+
+                    <div class="flow-arrow hidden md:block"></div>
+                     <div class="block md:hidden text-4xl my-4 text-[#0073E6]">↓</div>
+
+                    <div class="border-2 border-solid border-[#0073E6] p-4 rounded-lg bg-[#EBF5FF]">
+                        <p class="font-bold text-[#00529B] text-lg">The Solution: Hybrid Cloud</p>
+                        <p class="text-6xl my-2">🌉</p>
+                        <p>Modernize in Place</p>
+                        <p class="text-sm text-[#00529B] mt-1">Connect legacy systems to new cloud-native tools.</p>
+                    </div>
+                    
+                    <div class="flow-arrow hidden md:block"></div>
+                    <div class="block md:hidden text-4xl my-4 text-[#0073E6]">↓</div>
+
+                    <div class="border-2 border-dashed border-green-500 p-4 rounded-lg">
+                        <p class="font-bold text-green-600 text-lg">The Outcome</p>
+                        <p class="text-6xl my-2">🚀</p>
+                        <p>Agility & Control</p>
+                        <p class="text-sm text-green-500 mt-1">Innovate without disrupting critical services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dell-strategy" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#00529B] mb-8">Dell's Five Strategic Imperatives</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-5xl mb-4">🧠</p>
+                    <h3 class="font-bold text-lg text-[#00529B]">Own the AI-Ready Infrastructure</h3>
+                    <p class="text-sm text-gray-600 mt-2">Provide the secure, on-premise foundation for government AI workloads, addressing data sovereignty and cost.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-5xl mb-4">☁️</p>
+                    <h3 class="font-bold text-lg text-[#00529B]">Champion the Hybrid Cloud</h3>
+                    <p class="text-sm text-gray-600 mt-2">Lead with Dell APEX to deliver cloud-like agility and OpEx models for on-premise infrastructure.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-5xl mb-4">🎯</p>
+                    <h3 class="font-bold text-lg text-[#00529B]">Drive Data-Centric Outcomes</h3>
+                    <p class="text-sm text-gray-600 mt-2">Align data solutions with key verticals like Public Safety and Smart Communities to solve specific challenges.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-5xl mb-4">🛡️</p>
+                    <h3 class="font-bold text-lg text-[#00529B]">Integrate Core Security</h3>
+                    <p class="text-sm text-gray-600 mt-2">Weave intrinsic security and cyber resilience into every solution, from silicon to software.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-5xl mb-4">🤝</p>
+                    <h3 class="font-bold text-lg text-[#00529B]">Simplify Procurement</h3>
+                    <p class="text-sm text-gray-600 mt-2">Leverage cooperative contracts and a specialized partner ecosystem to become the easiest vendor to work with.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center border-t-2 border-[#0073E6] pt-8 mt-16">
+            <h2 class="text-3xl font-bold text-[#00529B]">Dell Technologies: The Foundational Architect of the Modern Digital State</h2>
+            <p class="mt-4 text-gray-600">Enabling smarter, safer, and stronger communities through technology.</p>
+        </footer>
+
+    </main>
+    
+    <script>
+        const brilliantBlues = {
+            dark: '#00529B',
+            primary: '#0073E6',
+            light: '#66B2FF',
+            lighter: '#CCE5FF',
+            lightest: '#EBF5FF'
+        };
+
+        function wrapLabel(label, maxLength = 16) {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        }
+
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
+            new Chart(marketGrowthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2023', '2024', '2025', '2026', '2027', '2028'],
+                    datasets: [{
+                        label: 'SLED IT Market Size ($B)',
+                        data: [145, 152, 155, 162, 170, 178],
+                        borderColor: brilliantBlues.primary,
+                        backgroundColor: brilliantBlues.lighter,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    },
+                    ...tooltipTitleCallback
+                }
+            });
+
+            const cioPrioritiesCtx = document.getElementById('cioPrioritiesChart').getContext('2d');
+            const originalLabels = [
+                'Cybersecurity & Risk Management',
+                'Artificial Intelligence/GenAI',
+                'Budget and Cost Control',
+                'Constituent Engagement/Experience',
+                'Application & Legacy Modernization'
+            ];
+            new Chart(cioPrioritiesCtx, {
+                type: 'bar',
+                data: {
+                    labels: originalLabels.map(label => wrapLabel(label)),
+                    datasets: [{
+                        label: 'Priority Ranking',
+                        data: [12, 10, 8, 7, 6], 
+                        backgroundColor: [
+                            brilliantBlues.dark,
+                            brilliantBlues.primary,
+                            brilliantBlues.light,
+                            brilliantBlues.lighter,
+                            '#D1D5DB'
+                        ],
+                        borderColor: brilliantBlues.dark,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                display: false
+                            }
+                        },
+                        y: {
+                           ticks: {
+                                font: {
+                                    size: 14
+                                }
+                           }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    return originalLabels[item.dataIndex];
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const aiAdoptionCtx = document.getElementById('aiAdoptionChart').getContext('2d');
+            new Chart(aiAdoptionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Expect GenAI to be Top Tech', 'Other'],
+                    datasets: [{
+                        data: [45, 55],
+                        backgroundColor: [brilliantBlues.primary, brilliantBlues.lightest],
+                        borderColor: ['#ffffff'],
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
